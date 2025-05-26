@@ -51,5 +51,46 @@ prototype of my stethoscope
 
 ![WhatsApp Image 2024-11-11 at 5 11 28 PM11](https://github.com/user-attachments/assets/42ed4580-dfb6-41af-85aa-2b6737c44d20)
 
+## Hardware modules to develop the stethoscope
+
+#### ESP32 Wi-Fi module
+
+![esp32](https://github.com/user-attachments/assets/f38995f8-6919-4af4-8daa-6a134a5c18ea)
+
+Esp32 is containing a low cost, low power consumption and high-performance Microcontroller that built by Espressif Systems. It has a Tensilica Xtensa LX6 32-bit with 160- 240 MHz dual core microprocessor. Its processing power help to success my project with one core is in reading mode while other core is in writing mode. includes built-in wireless antenna switches, RF balun, power amplifier, low-noise receive amplifier, filters, and power-management modules.
+
+- Memory: -520 KiB SRAM
+- Wireless connectivity: - Wi-Fi: 802.11 b/g/n, Bluetooth:-v4.2 BR/EDR and BLE
+- Peripheral interfaces: - 12-bit SAR ADC up to 18 channels, 2 × 8-bit DACs, 10 × touch sensors (capacitive sensing GPIOs), 4 × SPI, 2 × I²S interfaces, 2 × I²C interfaces, 3 × UART
+- SD/SDIO host controller, SDIO/SPI slave controller
+- Ethernet MAC interface and CAN bus 2.0
+- Infrared remote controller (TX/RX), Motor PWM, LED PWM
+- Ultra-low power analog pre-amplifier
+- Security: IEEE 802.11 standard security features WFA, WPA/WPA2 and WAPI
+- Flash encryption
+
+#### Microphone - INMP441
+
+![download](https://github.com/user-attachments/assets/7ddf41d8-f4cf-48aa-974c-c3877bb49910)
+
+The INMP441 is a popular MEMS (Micro-Electro-Mechanical System) omni-directional microphone it comes up with some special features that need for the development of the wireless stethoscope. It has major inbuilt capabilities rather than the regular microphones. Its shape and size are very suitable for my project and it make easy attach to the chest piece. Let’s look its built-in function of INMP441.
+- Digital Output (I2S Interface).
+It has inbuilt I2S converter. when its captures a date it outputs the data using I2s protocol is make easier to handle data with integrated circuits and microcontrollers.
+And it has inbuilt analog to digitals converter as we receive the data from microphone as digital data rather than analog. And it makes easier to handle and process data to transmit or the wireless network.
+- Low Power Consumption.
+- Integrated Amplifier - it reduces the work load of converting analog to digital.
+- Cost effective.
+Compare to regular microphones and amplifiers it is very cost-effective buying a single device to buying two devices.
+Because of its inbuilt functions it makes easier to implement the project. its working frequency (typically 60 Hz to 15 kHz) captured data less prone to noise and MEMS technology made it small and light weight.
+
+#### Connection Status of the Stethoscope
+
+![con states](https://github.com/user-attachments/assets/4bd5407e-ce12-49f1-b847-98cadb6c9631)
+
+##### Indications
+
+1.RED LED - Not Connected to WIFI.
+1.GREEN LED - Connected to WIFI.
+1.ORANGE LED - Connected to Server.
 
 <br />
