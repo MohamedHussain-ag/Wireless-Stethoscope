@@ -28,6 +28,28 @@ Web server stores the captured audio data. for this pupose i developed a simple 
 
 ## Basic design of the stethoscope
 To develop the stethoscope, I have got a normal stethoscope and cut it from the middle part of its rubber tube. fix the microphone in the rubber tube, to fix melt the rubber tube to make its hole larger according to the size of microphone and fix it properly using hot glue without any air leak between the rubber tube and microphone.
+
+Arrangement of electronic modules
+
 ![transmitter final](https://github.com/user-attachments/assets/6534263b-fc47-4f8a-8de5-13e19ff79396)
+
+Pin Mapping INMP441 to ESP32
+
+**INMP441 microphone pins**|**ESP32 pins**
+-|-
+VDD|3.3V
+GND|GND
+SD|GPIO32/D32
+SCK|GPIO12/D12
+WS|GPIO13/D13
+L/R|GND
+Green LED|GPIO15/D15
+Red LED|GPIO17/D17
+Yellow LED|GPIO21/D21
+
+prototype of my stethoscope
+
+![WhatsApp Image 2024-11-11 at 5 11 28 PM11](https://github.com/user-attachments/assets/42ed4580-dfb6-41af-85aa-2b6737c44d20)
+
 
 <br />
