@@ -160,3 +160,20 @@ It uses I2S (Inter-IC Sound) protocol to communicate so it is suitable for micro
 - It comes with in-built nose reduction systems so its suitable for audio related implementations
 - Cost effective.
 And there are more specifications.
+
+#### Connection Status of the Recevier
+
+![recverff](https://github.com/user-attachments/assets/7236249b-207e-4af7-a42c-d59435ffa4c6)
+
+#### Indications
+
+- RED LED - Not Connected to WIFI.
+- GREEN LED - Connected to WIFI.
+- ORANGE LED - Connected to Client.
+
+#### Serial Moniter printing connection Status
+
+![server ide](https://github.com/user-attachments/assets/53b662f8-fc70-4ad2-9718-c6747f28f8be)
+
+Printing the IP Address of the Recevier and printing the status of stethoscope using serial moniter.
+
