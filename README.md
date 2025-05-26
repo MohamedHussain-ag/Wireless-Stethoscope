@@ -177,3 +177,21 @@ And there are more specifications.
 
 Printing the IP Address of the Recevier and printing the status of stethoscope using serial moniter.
 
+#### Internet Connection Testing Video
+
+https://github.com/user-attachments/assets/fea4942f-71b5-469e-9d02-6a4b06c8ed65
+
+#### Client Availability Testing Video
+
+https://github.com/user-attachments/assets/d81f108e-eddc-48d4-9e63-dc05224e8141
+
+#### Web Server Testing Video
+
+https://github.com/user-attachments/assets/f5840a79-6813-4f40-80bd-1d8372a16e8a
+
+#### stethoscope testing video
+
+https://github.com/user-attachments/assets/46cd19df-172c-4253-af43-bec24e8cbeb6
+
+
+
