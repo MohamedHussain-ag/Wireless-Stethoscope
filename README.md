@@ -179,7 +179,7 @@ Printing the IP Address of the Recevier and printing the status of stethoscope u
 
 #### Internet Connection Testing Video
 
-https://github.com/user-attachments/assets/fea4942f-71b5-469e-9d02-6a4b06c8ed65
+https://github.com/user-attachments/assets/34aaaa65-3586-4653-a8e1-6856650beaf9
 
 #### Client Availability Testing Video
 
@@ -191,7 +191,10 @@ https://github.com/user-attachments/assets/f5840a79-6813-4f40-80bd-1d8372a16e8a
 
 #### stethoscope testing video
 
-https://github.com/user-attachments/assets/46cd19df-172c-4253-af43-bec24e8cbeb6
+https://github.com/user-attachments/assets/fa52ff1e-7292-43a4-bc2c-da81cb84e11a
+
+
+
 
 
 
