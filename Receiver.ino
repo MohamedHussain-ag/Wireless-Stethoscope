@@ -12,8 +12,8 @@
 #define I2S_SAMPLE_BITS   (16)  // Set this to 16 bits for compatibility with MAX98357A
 #define UPDATE_INTERVAL   (500)
 
-const char* ssid = "Mi A2";
-const char* password = "gaf43208";
+const char* ssid = "{WIFI-SSID}";
+const char* password = "{PASSWORD}";
 
 
 using namespace websockets;
