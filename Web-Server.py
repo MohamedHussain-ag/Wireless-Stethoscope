@@ -24,8 +24,8 @@ async def handle_audio(websocket, path):
         print("Record saved to", steth_reading)
 
 async def main():
-    async with websockets.serve(handle_audio, '192.168.43.160', 8090):
-        print("web Server running on: 192.168.43.160:8090")
+    async with websockets.serve(handle_audio, '{IPADDRESS-Server}', {PORT}):
+        print("web Server running on: {IPADDRESS-Server}:{PORT}")
         await asyncio.Future()
 
 asyncio.run(main())
