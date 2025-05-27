@@ -3,14 +3,17 @@
 #include <WiFi.h>
 #include "driver/i2s.h"
 
-#define I2S_WS_TX  12          // Word Select (L/R) pin for MAX98357A
-#define I2S_SCK_TX 13          // Bit Clock pin for MAX98357A
-#define I2S_DATA_OUT_TX  15    // Data Out pin for MAX98357A
+#define WS  12          // Word Select (L/R) pin for MAX98357A
+#define SCK 13          // Bit Clock pin for MAX98357A
+#define DATA_OUT  15    // Data Out pin for MAX98357A
 
 #define I2S_PORT I2S_NUM_0
-#define I2S_SAMPLE_RATE   (44100)
-#define I2S_SAMPLE_BITS   (16)  // Set this to 16 bits for compatibility with MAX98357A
 #define UPDATE_INTERVAL   (500)
+
+//LED pins
+const int greenLED = 15;
+const int redLED = 18;
+const int yellowLED = 21;
 
 const char* ssid = "{WIFI-SSID}";
 const char* password = "{PASSWORD}";
@@ -22,7 +25,7 @@ WebsocketsClient client;
 
 const i2s_config_t i2s_config_tx = {
   .mode = i2s_mode_t(I2S_MODE_MASTER | I2S_MODE_TX),
-  .sample_rate = I2S_SAMPLE_RATE,
+  .sample_rate = 16000,        //.sample_rate = 44100, higher sample rate required higher memory and processing speed, causes delay, sample rate of both devices shoud be same
   .bits_per_sample = i2s_bits_per_sample_t(I2S_SAMPLE_BITS),
   .channel_format = I2S_CHANNEL_FMT_ONLY_LEFT,
   .communication_format = i2s_comm_format_t(I2S_COMM_FORMAT_I2S | I2S_COMM_FORMAT_I2S_MSB),
@@ -32,9 +35,9 @@ const i2s_config_t i2s_config_tx = {
 };
 
 const i2s_pin_config_t pin_config_tx = {
-  .bck_io_num = I2S_SCK_TX,
-  .ws_io_num = I2S_WS_TX,
-  .data_out_num = I2S_DATA_OUT_TX,
+  .bck_io_num = SCK,
+  .ws_io_num = WS,
+  .data_out_num = DATA_OUT,
   .data_in_num = I2S_PIN_NO_CHANGE
 };
 
