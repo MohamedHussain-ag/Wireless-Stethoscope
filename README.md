@@ -21,8 +21,10 @@ A Microphone placed in the chest piece of the stethoscope captures the acoustic 
 The receiver, another esp8266 Wi-Fi module receives transmitted data from stethoscope and Amplifier module amplifies the data output to speaker and we can hear the acoustic heard beat sound.
 <br />
 ## Indicaters
-Serial monitor of Arduino IDE prints connectivity details of the both devices and LED indicaters to show connectivity states
-<br />
+- Serial monitor of Arduino IDE prints connectivity details of the both Stethoscope and Recevier.
+- LED indicaters to show connectivity status both Stethoscope and Recevier.
+
+## Web Server
 Web server stores the captured audio data. for this pupose i developed a simple python server on linux.
 <br />
 
