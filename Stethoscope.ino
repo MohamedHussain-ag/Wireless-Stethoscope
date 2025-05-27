@@ -13,17 +13,20 @@
 
 int16_t sBuffer[bufferLen];
 
+// setting wifi credentials
 const char* ssid = "{WIFI-SSID}";
 const char* password = "{PASSWORD}";
 
-
-const char* websocket_server_host = "192.168.43.51";
-const uint16_t websocket_server_port = 8888;  // <WEBSOCKET_SERVER_PORT>
+// passing wifi credentials to stethoscope
+const char* websocket_server_host = "{IP ADDRESS}"; // server ip address
+const uint16_t websocket_server_port = 8888;  // WEBSOCKET_SERVER_PORT can be any
 
 using namespace websockets;
 WebsocketsClient client;
 bool isWebSocketConnected;
 
+//called automatically by the WebSocket client library whenever specific WebSocket events occur. It helps manage and respond to connection-related events
+// detailed description is ther in the web-socket-description file 
 void onEventsCallback(WebsocketsEvent event, String data) {
   if (event == WebsocketsEvent::ConnectionOpened) {
     Serial.println("Connnection Opened");
