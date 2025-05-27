@@ -11,6 +11,12 @@
 #define bufferLen 256
 #define LED_PIN 2  // Choose GPIO pin 2, or any other available pin
 
+//LED pins
+const int greenLED = 21;
+const int redLED = 17;
+const int yellowLED = 15;
+
+// passing buffer lenth
 int16_t sBuffer[bufferLen];
 
 // setting wifi credentials
@@ -26,7 +32,7 @@ WebsocketsClient client;
 bool isWebSocketConnected;
 
 //called automatically by the WebSocket client library whenever specific WebSocket events occur. It helps manage and respond to connection-related events
-// detailed description is ther in the web-socket-description file 
+// detailed description is ther in the web-socket-description.md file 
 void onEventsCallback(WebsocketsEvent event, String data) {
   if (event == WebsocketsEvent::ConnectionOpened) {
     Serial.println("Connnection Opened");
@@ -45,8 +51,8 @@ void i2s_install() {
   // Set up I2S Processor configuration
   const i2s_config_t i2s_config = {
     .mode = i2s_mode_t(I2S_MODE_MASTER | I2S_MODE_RX),
-    //.sample_rate = 44100,
-    .sample_rate = 16000,
+    //.sample_rate = 44100, higher sample rate required higher memory and processing speed, causes delay
+    .sample_rate = 16000, // sample rate of both devices shoud be same
     .bits_per_sample = i2s_bits_per_sample_t(16),
     .channel_format = I2S_CHANNEL_FMT_ONLY_LEFT,
     .communication_format = i2s_comm_format_t(I2S_COMM_FORMAT_STAND_I2S),
@@ -89,14 +95,23 @@ void connectWiFi() {
 
   while (WiFi.status() != WL_CONNECTED) {
     
-    delay(500);
+    delay(1000);
     Serial.print(".");
+
+    // redLED = on greenLED = off
+    digitalwrite (greenLED, LOW);
+    digitalwrite (redLED, HIGH);
   }
+
+  // redLED = on greenLED = off
+  digitalwrite (greenLED, HIGH);
+  digitalwrite (redLED, LOW);
+
+  // serial printing connection status
   Serial.println("");
   Serial.println("WiFi connected");
-  //digitalWrite(LED_PIN, HIGH);  // Turn the LED on
-  Serial.print("ESP32 Transmitter IP Address: ");
-  Serial.println(WiFi.localIP());
+  Serial.print("Chest Piece IP Address: ");
+  Serial.println(WiFi.localIP()); // printing IPs
 }
 
 void connectWSServer() {
