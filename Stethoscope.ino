@@ -2,10 +2,10 @@
 #include <WiFi.h>
 #include <ArduinoWebsockets.h>
 
-#define I2S_SD 32
-#define I2S_WS 15
-#define I2S_SCK 12
-#define I2S_PORT I2S_NUM_0
+#define SD 32
+#define WS 15
+#define SCK 12
+#define PORT I2S_NUM_0
 
 #define bufferCnt 8
 #define bufferLen 256
@@ -24,8 +24,8 @@ const char* ssid = "{WIFI-SSID}";
 const char* password = "{PASSWORD}";
 
 // passing wifi credentials to stethoscope
-const char* websocket_server_host = "{IP ADDRESS}"; // server ip address
-const uint16_t websocket_server_port = 8888;  // WEBSOCKET_SERVER_PORT can be any
+const char* server_IP = "{IP ADDRESS}"; // server ip address
+const uint16_t server_port = 8888;  // WEBSOCKET_SERVER_PORT can be any
 
 using namespace websockets;
 WebsocketsClient client;
@@ -68,13 +68,13 @@ void i2s_install() {
 void i2s_setpin() {
   // Set I2S pin configuration
   const i2s_pin_config_t pin_config = {
-    .bck_io_num = I2S_SCK,
-    .ws_io_num = I2S_WS,
+    .bck_io_num = SCK,
+    .ws_io_num = WS,
     .data_out_num = -1,
-    .data_in_num = I2S_SD
+    .data_in_num = SD
   };
 
-  i2s_set_pin(I2S_PORT, &pin_config);
+  i2s_set_pin(PORT, &pin_config);
 }
 
 void setup() {
@@ -116,11 +116,12 @@ void connectWiFi() {
 
 void connectWSServer() {
   client.onEvent(onEventsCallback);
-  while (!client.connect(websocket_server_host, websocket_server_port, "/")) {
+  while (!client.connect(server_IP, server_port, "/")) {
     delay(500);
     Serial.print(".");
   }
-  Serial.println("Websocket Connected!");
+  digitalwrite (yellowLED, HIGH);
+  Serial.println("Server Connected!");
 }
 
 
@@ -128,11 +129,11 @@ void micTask(void* parameter) {
 
   i2s_install();
   i2s_setpin();
-  i2s_start(I2S_PORT);
+  i2s_start(PORT);
 
   size_t bytesIn = 0;
   while (1) {
-    esp_err_t result = i2s_read(I2S_PORT, &sBuffer, bufferLen, &bytesIn, portMAX_DELAY);
+    esp_err_t result = i2s_read(PORT, &sBuffer, bufferLen, &bytesIn, portMAX_DELAY);
     if (result == ESP_OK && isWebSocketConnected) {
       client.sendBinary((const char*)sBuffer, bytesIn);
     }
