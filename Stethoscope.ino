@@ -13,8 +13,8 @@
 
 int16_t sBuffer[bufferLen];
 
-const char* ssid = "Mi A2";
-const char* password = "gaf43208";
+const char* ssid = "{WIFI-SSID}";
+const char* password = "{PASSWORD}";
 
 
 const char* websocket_server_host = "192.168.43.51";
